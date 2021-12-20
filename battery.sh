@@ -15,8 +15,8 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 
 if [ $Battery_Percentage -le $Battery_low ] && [ $Battery_Status = Discharging ]; then
     echo "Plug your power"
-    notify-send "Battery Low" "You might want to plug in your Computer"
+    notify-send -h int:transient:1 -t 5000 "Battery Low" "You might want to plug in your Computer"
 elif [ $Battery_Percentage -ge $Battery_high ] && [ $Battery_Status != Discharging ]; then
     echo "unplug your power"
-    notify-send "Battery limit reached" "You might want to unplug your Computer"
+    notify-send -h int:transient:1 -t 5000 "Battery limit reached" "You might want to unplug your Computer"
 fi
